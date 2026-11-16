@@ -1,0 +1,9 @@
+{
+  "name": "Sri Harsha Godavarthi · Portfolio",
+  "short_name": "SH Portfolio",
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#0a0e1a",
+  "theme_color": "#0a0e1a",
+  "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

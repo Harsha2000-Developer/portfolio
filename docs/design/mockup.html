@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e1a; --bg2:#0f1526; --card:#121a2e; --line:#1e2a45;
+    --text:#e6eaf2; --muted:#8b96ad; --accent:#38bdf8; --accent2:#818cf8; --ok:#34d399;
+    --grad:linear-gradient(135deg,#38bdf8 0%,#818cf8 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  .mono{font-family:'JetBrains Mono',monospace}
+  a{color:inherit;text-decoration:none}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:5;background:rgba(10,14,26,.8);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-weight:800;font-size:22px;letter-spacing:-.5px}
+  .logo span{background:var(--grad);-webkit-background-clip:text;color:transparent}
+  .links{display:flex;gap:30px;font-size:14px;color:var(--muted)}
+  .links a.active{color:var(--text)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:10px;font-weight:600;font-size:14px}
+  .btn-primary{background:var(--grad);color:#0a0e1a}
+  .btn-ghost{border:1px solid var(--line);color:var(--text);background:var(--card)}
+
+  /* hero */
+  .hero{padding:96px 0 80px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;width:700px;height:700px;right:-200px;top:-250px;background:radial-gradient(circle,rgba(129,140,248,.18),transparent 65%)}
+  .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;position:relative}
+  .pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ok);border:1px solid rgba(52,211,153,.3);background:rgba(52,211,153,.08);padding:6px 14px;border-radius:99px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok)}
+  h1{font-size:60px;line-height:1.05;letter-spacing:-2px;font-weight:800;margin:22px 0 14px}
+  h1 .g{background:var(--grad);-webkit-background-clip:text;color:transparent}
+  .role{font-size:20px;color:var(--text);font-weight:500;margin-bottom:16px}
+  .summary{color:var(--muted);font-size:17px;max-width:560px}
+  .cta{display:flex;gap:14px;margin:32px 0 40px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:600px}
+  .stat b{display:block;font-size:30px;font-weight:800;letter-spacing:-1px}
+  .stat small{color:var(--muted);font-size:13px}
+  .term{background:var(--bg2);border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.45);overflow:hidden}
+  .term-bar{display:flex;gap:7px;padding:14px 16px;border-bottom:1px solid var(--line);align-items:center}
+  .term-bar i{width:11px;height:11px;border-radius:50%;display:block}
+  .term-bar span{margin-left:10px;font-size:12px;color:var(--muted)}
+  .term pre{padding:22px;font-size:13.5px;line-height:1.75;color:#c7d0e0}
+  .k{color:#818cf8}.s{color:#34d399}.n{color:#f9a8d4}.c{color:#56627a}
+
+  /* sections */
+  section{padding:88px 0;border-top:1px solid var(--line)}
+  .eyebrow{font-size:13px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;font-weight:600}
+  h2{font-size:38px;letter-spacing:-1px;font-weight:800;margin:8px 0 12px}
+  .lead{color:var(--muted);max-width:620px;margin-bottom:44px}
+
+  /* stack */
+  .stack{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}
+  .card h3{font-size:17px;font-weight:700;display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .ico{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:rgba(56,189,248,.1);color:var(--accent);font-size:16px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:13px;padding:6px 12px;border-radius:8px;background:var(--bg2);border:1px solid var(--line);color:#cbd5e1}
+  .chip.hot{border-color:rgba(56,189,248,.45);color:var(--accent)}
+
+  /* timeline */
+  .tl{position:relative;padding-left:36px}
+  .tl:before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--accent),var(--accent2),transparent)}
+  .job{position:relative;margin-bottom:24px}
+  .job:before{content:"";position:absolute;left:-33px;top:28px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+  .job .card{display:grid;grid-template-columns:240px 1fr;gap:32px}
+  .when{font-size:13px;color:var(--accent)}
+  .co{font-size:18px;font-weight:700;margin-top:4px}
+  .loc{color:var(--muted);font-size:13px}
+  .title{font-weight:600;font-size:17px;margin-bottom:10px}
+  .job ul{list-style:none;color:var(--muted);font-size:15px}
+  .job li{padding-left:20px;position:relative;margin-bottom:6px}
+  .job li:before{content:"▹";position:absolute;left:0;color:var(--accent)}
+  .job li b{color:var(--text);font-weight:600}
+  .job .chips{margin-top:14px}
+
+  /* projects */
+  .filters{display:flex;gap:10px;margin-bottom:28px}
+  .filters span{font-size:13px;padding:8px 16px;border-radius:99px;border:1px solid var(--line);color:var(--muted)}
+  .filters span.on{background:var(--text);color:var(--bg);border-color:var(--text);font-weight:600}
+  .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .proj{padding:0;overflow:hidden;display:flex;flex-direction:column}
+  .thumb{height:150px;position:relative;border-bottom:1px solid var(--line)}
+  .thumb .mono{position:absolute;left:18px;bottom:14px;font-size:12px;color:rgba(255,255,255,.75)}
+  .proj .body{padding:22px;display:flex;flex-direction:column;flex:1}
+  .proj h3{margin-bottom:8px}
+  .proj p{color:var(--muted);font-size:14.5px;margin-bottom:14px}
+  .impact{font-size:13px;color:var(--ok);margin-bottom:14px}
+  .plinks{margin-top:auto;padding-top:16px;display:flex;gap:18px;font-size:13px;color:var(--accent);border-top:1px solid var(--line)}
+
+  /* certs */
+  .certs{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .cert{text-align:left}
+  .badge{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;font-weight:800;font-size:15px;margin-bottom:18px;color:#0a0e1a}
+  .cert h3{font-size:15.5px;margin-bottom:6px;display:block}
+  .cert .meta{color:var(--muted);font-size:13px}
+  .verify{display:inline-block;margin-top:14px;font-size:13px;color:var(--accent)}
+
+  /* contact */
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .clist{display:grid;gap:14px;margin-top:28px}
+  .citem{display:flex;align-items:center;gap:16px;padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+  .citem small{display:block;color:var(--muted);font-size:12px}
+  form .card{display:grid;gap:16px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+  .in{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:13px 14px;color:var(--muted);font-size:14px}
+  .ta{height:120px}
+  footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between}
+
+  /* mobile */
+  @media (max-width:760px){
+    .wrap{padding:0 16px}
+    .links,.navbtn{display:none}
+    .hero{padding:56px 0}
+    .hero .wrap,.contact,.job .card{grid-template-columns:1fr}
+    h1{font-size:40px}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .stack,.projects{grid-template-columns:1fr}
+    .certs{grid-template-columns:1fr 1fr}
+    .term{display:none}
+    section{padding:56px 0}
+    h2{font-size:30px}
+    .job .card{gap:10px}
+    .filters{flex-wrap:wrap}
+    .row{grid-template-columns:1fr}
+    footer .wrap{flex-direction:column;gap:6px}
+    .burger{display:block!important}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">SH<span>.</span></div>
+    <div class="links">
+      <a class="active">Summary</a><a>Tech Stack</a><a>Experience</a><a>Projects</a><a>Certifications</a><a>Contact</a>
+    </div>
+    <a class="btn btn-ghost navbtn">⤓ Resume</a>
+    <div class="burger" style="display:none;font-size:22px">☰</div>
+  </div>
+</nav>
+
+<!-- SUMMARY / HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="pill"><span class="dot"></span> Open to senior & lead roles</span>
+      <h1>Hi, I'm <span class="g">Sri Harsha<br>Godavarthi</span></h1>
+      <div class="role">Senior Software Engineer · Java / Spring Boot · Cloud-Native Systems</div>
+      <p class="summary">I design and ship scalable distributed systems — from event-driven microservices on AWS & Kubernetes to polished React front-ends. 8+ years turning complex business problems into reliable, observable, high-performance software, and mentoring the engineers who build it.</p>
+      <div class="cta">
+        <a class="btn btn-primary">View Projects →</a>
+        <a class="btn btn-ghost">Get in touch</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>8+</b><small>Years experience</small></div>
+        <div class="stat"><b>40+</b><small>Services shipped</small></div>
+        <div class="stat"><b>99.99%</b><small>Uptime owned</small></div>
+        <div class="stat"><b>15</b><small>Engineers mentored</small></div>
+      </div>
+    </div>
+    <div class="term">
+      <div class="term-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="mono">engineer.java</span></div>
+<pre class="mono"><span class="k">public record</span> <span class="n">Engineer</span>(
+  String name,
+  String role,
+  List&lt;String&gt; focus
+) {}
+
+<span class="c">// currently</span>
+<span class="k">var</span> me = <span class="k">new</span> <span class="n">Engineer</span>(
+  <span class="s">"Sri Harsha"</span>,
+  <span class="s">"Senior Software Engineer"</span>,
+  List.of(
+    <span class="s">"Distributed Systems"</span>,
+    <span class="s">"Cloud Architecture"</span>,
+    <span class="s">"Developer Experience"</span>
+  )
+);
+
+me.ship(); <span class="c">// ✔ build passing</span></pre>
+    </div>
+  </div>
+</header>
+
+<!-- TECH STACK -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">02 · Tech Stack</div>
+    <h2>Tools I build with</h2>
+    <p class="lead">A pragmatic, production-tested toolkit. Highlighted items are where I go deepest.</p>
+    <div class="stack">
+      <div class="card"><h3><span class="ico">{ }</span>Languages</h3><div class="chips"><span class="chip hot">Java 21</span><span class="chip hot">TypeScript</span><span class="chip">Python</span><span class="chip">Go</span><span class="chip">SQL</span></div></div>
+      <div class="card"><h3><span class="ico">⚙</span>Backend</h3><div class="chips"><span class="chip hot">Spring Boot</span><span class="chip hot">Microservices</span><span class="chip">Spring Cloud</span><span class="chip">Node.js</span><span class="chip">REST</span><span class="chip">gRPC</span><span class="chip">GraphQL</span></div></div>
+      <div class="card"><h3><span class="ico">◧</span>Frontend</h3><div class="chips"><span class="chip hot">React</span><span class="chip">Next.js</span><span class="chip">Redux Toolkit</span><span class="chip">Tailwind CSS</span><span class="chip">Jest / RTL</span></div></div>
+      <div class="card"><h3><span class="ico">☁</span>Cloud & DevOps</h3><div class="chips"><span class="chip hot">AWS</span><span class="chip hot">Kubernetes</span><span class="chip">Docker</span><span class="chip">Terraform</span><span class="chip">GitHub Actions</span><span class="chip">Jenkins</span></div></div>
+      <div class="card"><h3><span class="ico">⛁</span>Data & Messaging</h3><div class="chips"><span class="chip hot">Kafka</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Redis</span><span class="chip">Elasticsearch</span></div></div>
+      <div class="card"><h3><span class="ico">◎</span>Practices</h3><div class="chips"><span class="chip">System Design</span><span class="chip">DDD</span><span class="chip">TDD</span><span class="chip">Observability</span><span class="chip">CI/CD</span><span class="chip">Agile</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK HISTORY -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">03 · Work History</div>
+    <h2>Where I've made an impact</h2>
+    <p class="lead">Roles focused on platform scale, reliability and team growth.</p>
+    <div class="tl">
+      <div class="job"><div class="card">
+        <div><div class="when mono">2022 — Present</div><div class="co">Company Name</div><div class="loc">Remote · FinTech</div></div>
+        <div><div class="title">Senior Software Engineer</div>
+          <ul><li>Led migration of a monolith to <b>22 Spring Boot microservices</b> on EKS, cutting deploy time from 2h to <b>12 min</b>.</li>
+          <li>Designed a Kafka event pipeline processing <b>5M+ transactions/day</b> with exactly-once semantics.</li>
+          <li>Mentored 6 engineers; introduced design reviews and an on-call playbook.</li></ul>
+          <div class="chips"><span class="chip">Java 21</span><span class="chip">Spring Boot</span><span class="chip">Kafka</span><span class="chip">AWS EKS</span></div></div>
+      </div></div>
+      <div class="job"><div class="card">
+        <div><div class="when mono">2019 — 2022</div><div class="co">Company Name</div><div class="loc">Hyderabad · E-commerce</div></div>
+        <div><div class="title">Software Engineer II</div>
+          <ul><li>Built checkout & payments APIs serving <b>3K req/s</b> at p99 &lt; 120 ms.</li>
+          <li>Reduced cloud spend <b>30%</b> via autoscaling and Redis caching.</li></ul>
+          <div class="chips"><span class="chip">Spring Cloud</span><span class="chip">React</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span></div></div>
+      </div></div>
+      <div class="job"><div class="card">
+        <div><div class="when mono">2017 — 2019</div><div class="co">Company Name</div><div class="loc">Bengaluru · SaaS</div></div>
+        <div><div class="title">Software Engineer</div>
+          <ul><li>Delivered customer-facing dashboards in React used by <b>200+ enterprise clients</b>.</li>
+          <li>Raised test coverage from 40% to <b>85%</b> with JUnit & Jest.</li></ul>
+          <div class="chips"><span class="chip">Java</span><span class="chip">React</span><span class="chip">MySQL</span></div></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">04 · Projects</div>
+    <h2>Things I've built</h2>
+    <p class="lead">Selected work — production systems and open-source side projects.</p>
+    <div class="filters"><span class="on">All</span><span>Backend</span><span>Full-stack</span><span>Cloud</span><span>Open source</span></div>
+    <div class="projects">
+      <div class="card proj"><div class="thumb" style="background:linear-gradient(135deg,#0e7490,#312e81)"><span class="mono">payments-platform</span></div><div class="body"><h3>Real-time Payments Platform</h3><p>Event-driven ledger with saga orchestration and idempotent APIs.</p><div class="impact">▲ 5M tx/day · 99.99% uptime</div><div class="chips"><span class="chip">Spring Boot</span><span class="chip">Kafka</span><span class="chip">EKS</span></div><div class="plinks"><a>Case study →</a><a>GitHub ↗</a></div></div></div>
+      <div class="card proj"><div class="thumb" style="background:linear-gradient(135deg,#7c3aed,#db2777)"><span class="mono">observability-kit</span></div><div class="body"><h3>Observability Starter Kit</h3><p>Drop-in Spring starter for tracing, metrics and structured logs.</p><div class="impact">▲ Adopted by 30+ services</div><div class="chips"><span class="chip">OpenTelemetry</span><span class="chip">Grafana</span><span class="chip">Java</span></div><div class="plinks"><a>Case study →</a><a>GitHub ↗</a></div></div></div>
+      <div class="card proj"><div class="thumb" style="background:linear-gradient(135deg,#059669,#0369a1)"><span class="mono">shop-cart</span></div><div class="body"><h3>Cloud Shopping Cart</h3><p>Full-stack cart with React front-end, Spring APIs and Redis sessions.</p><div class="impact">▲ p99 &lt; 80 ms</div><div class="chips"><span class="chip">React</span><span class="chip">Spring</span><span class="chip">Redis</span></div><div class="plinks"><a>Live demo ↗</a><a>GitHub ↗</a></div></div></div>
+      <div class="card proj"><div class="thumb" style="background:linear-gradient(135deg,#ea580c,#be123c)"><span class="mono">infra-as-code</span></div><div class="body"><h3>Terraform Platform Modules</h3><p>Reusable AWS modules for VPC, EKS and RDS with policy guardrails.</p><div class="impact">▲ Env setup 3 days → 40 min</div><div class="chips"><span class="chip">Terraform</span><span class="chip">AWS</span></div><div class="plinks"><a>Case study →</a><a>GitHub ↗</a></div></div></div>
+      <div class="card proj"><div class="thumb" style="background:linear-gradient(135deg,#4f46e5,#0891b2)"><span class="mono">ai-code-review</span></div><div class="body"><h3>AI Code Review Bot</h3><p>GitHub App that summarises PRs and flags risky changes with an LLM.</p><div class="impact">▲ 25% faster review cycles</div><div class="chips"><span class="chip">Python</span><span class="chip">LLM</span><span class="chip">GitHub API</span></div><div class="plinks"><a>Live demo ↗</a><a>GitHub ↗</a></div></div></div>
+      <div class="card proj"><div class="thumb" style="background:linear-gradient(135deg,#334155,#0f766e)"><span class="mono">k8s-autoscaler</span></div><div class="body"><h3>Custom K8s Autoscaler</h3><p>Kafka-lag based autoscaling operator written in Go.</p><div class="impact">▲ 35% compute savings</div><div class="chips"><span class="chip">Go</span><span class="chip">Kubernetes</span></div><div class="plinks"><a>Case study →</a><a>GitHub ↗</a></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">05 · Certifications</div>
+    <h2>Verified credentials</h2>
+    <p class="lead">Each badge links to its official verification page.</p>
+    <div class="certs">
+      <div class="card cert"><div class="badge" style="background:#f59e0b">AWS</div><h3>AWS Solutions Architect – Professional</h3><div class="meta">Amazon Web Services · 2024</div><a class="verify">Verify ↗</a></div>
+      <div class="card cert"><div class="badge" style="background:#60a5fa">CKA</div><h3>Certified Kubernetes Administrator</h3><div class="meta">CNCF · 2023</div><a class="verify">Verify ↗</a></div>
+      <div class="card cert"><div class="badge" style="background:#f87171">OCP</div><h3>Oracle Certified Professional, Java SE 17</h3><div class="meta">Oracle · 2023</div><a class="verify">Verify ↗</a></div>
+      <div class="card cert"><div class="badge" style="background:#a78bfa">TF</div><h3>HashiCorp Terraform Associate</h3><div class="meta">HashiCorp · 2022</div><a class="verify">Verify ↗</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <div class="wrap contact">
+    <div>
+      <div class="eyebrow">06 · Contact</div>
+      <h2>Let's build something great</h2>
+      <p class="lead" style="margin-bottom:0">Hiring for a senior or lead role, or want to talk architecture? My inbox is open — I reply within 24 hours.</p>
+      <div class="clist">
+        <div class="citem"><span class="ico">✉</span><div><small>Email</small>hello@yourdomain.com</div></div>
+        <div class="citem"><span class="ico">in</span><div><small>LinkedIn</small>linkedin.com/in/your-handle</div></div>
+        <div class="citem"><span class="ico">⌥</span><div><small>GitHub</small>github.com/SriHarsha-Godavarthi</div></div>
+        <div class="citem"><span class="ico">⌖</span><div><small>Location</small>India · Open to remote</div></div>
+      </div>
+    </div>
+    <form><div class="card">
+      <div class="row"><div><label>Name</label><div class="in">Jane Doe</div></div><div><label>Email</label><div class="in">jane@company.com</div></div></div>
+      <div><label>Subject</label><div class="in">Senior Engineer opportunity</div></div>
+      <div><label>Message</label><div class="in ta">Hi Sri Harsha, …</div></div>
+      <a class="btn btn-primary" style="justify-content:center">Send message →</a>
+    </div></form>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© 2026 Sri Harsha Godavarthi</span><span class="mono">Built with React · TypeScript · Tailwind</span></div></footer>
+</body>
+</html>

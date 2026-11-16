@@ -1,0 +1,106 @@
+import type { TechCategory } from '@/types/content';
+
+// Set highlight: true on the skills you want emphasised.
+export const techStack: TechCategory[] = [
+  {
+    title: 'Languages',
+    icon: '{ }',
+    items: [
+      { name: 'TypeScript', highlight: true },
+      { name: 'JavaScript', highlight: true },
+      { name: 'Java', highlight: true },
+      { name: 'SQL' },
+    ],
+  },
+  {
+    title: 'Backend',
+    icon: '⚙',
+    items: [
+      { name: 'Node.js', highlight: true },
+      { name: 'Spring Boot', highlight: true },
+      { name: 'Spring Framework', highlight: true },
+      { name: 'Express.js' },
+      { name: 'Spring Data JPA' },
+      { name: 'REST' },
+      { name: 'GraphQL' },
+      { name: 'WebSockets' },
+    ],
+  },
+  {
+    title: 'AWS Cloud',
+    icon: '☁',
+    items: [
+      { name: 'Lambda', highlight: true },
+      { name: 'SQS', highlight: true },
+      { name: 'S3', highlight: true },
+      { name: 'ECS' },
+      { name: 'EKS' },
+      { name: 'API Gateway' },
+      { name: 'SNS' },
+      { name: 'EventBridge' },
+      { name: 'VPC' },
+      { name: 'IAM' },
+      { name: 'ECR' },
+      { name: 'KMS' },
+      { name: 'Step Functions' },
+      { name: 'RDS' },
+      { name: 'DynamoDB' },
+      { name: 'CloudWatch' },
+      { name: 'Bedrock' },
+    ],
+  },
+  {
+    title: 'Infrastructure & DevOps',
+    icon: '⛭',
+    items: [
+      { name: 'AWS CDK', highlight: true },
+      { name: 'Docker' },
+      { name: 'Terraform' },
+      { name: 'CloudFormation' },
+      { name: 'Kubernetes' },
+      { name: 'Helm' },
+      { name: 'GitHub Actions' },
+      { name: 'Jenkins' },
+    ],
+  },
+  {
+    title: 'Frontend',
+    icon: '◧',
+    items: [
+      { name: 'React', highlight: true },
+      { name: 'Next.js' },
+      { name: 'Redux Toolkit' },
+      { name: 'Tailwind CSS' },
+      { name: 'Material UI' },
+    ],
+  },
+  {
+    title: 'Data & Messaging',
+    icon: '⛁',
+    items: [{ name: 'Kafka' }, { name: 'PostgreSQL' }, { name: 'MySQL' }, { name: 'MongoDB' }, { name: 'Redis' }],
+  },
+  {
+    title: 'Testing & Practices',
+    icon: '◎',
+    items: [
+      { name: 'Jest' },
+      { name: 'JUnit' },
+      { name: 'Cypress' },
+      { name: 'Playwright' },
+      { name: 'TDD' },
+      { name: 'Microservices' },
+      { name: 'Agile / Scrum' },
+    ],
+  },
+  {
+    title: 'Other Tools',
+    icon: '◎',
+    items: [
+      { name: 'Git' },
+      { name: 'GitHub' },
+      { name: 'Claude Code' },
+      { name: 'Postman' },
+      { name: 'OpenAPI / Swagger' },
+    ],
+  },
+];
