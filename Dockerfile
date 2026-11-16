@@ -13,7 +13,7 @@ ENV VITE_SITE_URL=${VITE_SITE_URL}
 RUN npm run build
 
 # ---- Serve ----
-FROM nginxinc/nginx-unprivileged:1.27-alpine AS runtime
+FROM nginxinc/nginx-unprivileged:1.31-alpine AS runtime
 
 COPY deploy/nginx.conf /etc/nginx/conf.d/default.conf
 COPY deploy/security-headers.conf /etc/nginx/snippets/security-headers.conf
