@@ -33,7 +33,7 @@ jobs:
           # e.g. https://<user>.github.io/<repo> and /<repo>/ (or your custom domain and /)
           VITE_SITE_URL: ${{ vars.SITE_URL || steps.pages.outputs.base_url }}
           VITE_BASE: ${{ vars.SITE_URL && '/' || format('{0}/', steps.pages.outputs.base_path) }}
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
