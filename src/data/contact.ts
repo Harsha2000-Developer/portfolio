@@ -22,8 +22,8 @@ export const contact: ContactData = {
     {
       type: 'github',
       label: 'GitHub',
-      value: 'github.com/SriHarsha-Godavarthi',
-      url: 'https://github.com/SriHarsha-Godavarthi',
+      value: 'github.com/Harsha2000-Developer',
+      url: 'https://github.com/Harsha2000-Developer',
     },
     { type: 'location', label: 'Location', value: 'Irving, TX · United States' },
   ],
